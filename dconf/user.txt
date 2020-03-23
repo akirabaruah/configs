@@ -55,4 +55,4 @@ check-timestamp=int64 1584923940
 install-timestamp=int64 1575156750
 
 [org/gnome/system/location]
-enabled=true
+enabled=false
