@@ -16,6 +16,8 @@ translate=true
 current=uint32 0
 sources=[('xkb', 'us')]
 
+xkb-options=['ctrl:nocaps']
+
 [org/gnome/desktop/interface]
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Adwaita-dark'
