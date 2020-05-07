@@ -7,6 +7,11 @@
            :files ("protobuf-mode.el"))
   :pin "94b7bd7e8b")
 
+(package! bazel-mode
+  :recipe (:host github
+           :repo "bazelbuild/emacs-bazel-mode")
+  :pin "668a44907f")
+
 ;; To install a package with Doom you must declare them here, run 'doom sync' on
 ;; the command line, then restart Emacs for the changes to take effect.
 ;; Alternatively, use M-x doom/reload.
