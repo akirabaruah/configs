@@ -12,6 +12,9 @@
            :repo "bazelbuild/emacs-bazel-mode")
   :pin "668a44907f")
 
+(package! dart-mode :pin "04fcd649f19d49390079fbf2920a10bf37f6a634")
+(package! lsp-dart :pin "a4902644c19f2cbb7b36ccf34a1d5ce56087f2bd")
+
 (package! fish-mode
   :recipe (:host github
            :repo "emacsmirror/fish-mode")

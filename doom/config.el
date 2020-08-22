@@ -36,6 +36,15 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(setq github-directory "~/projects/github.com/")
+
+;; Dart lang config.
+(use-package! dart-mode
+  :mode ("\\.dart\\'" . dart-mode))
+(use-package! lsp-dart
+  :init
+  (setq lsp-dart-flutter-sdk-dir (concat github-directory "flutter/flutter"))
+  (setq lsp-dart-sdk-dir (concat lsp-dart-flutter-sdk-dir "/bin/cache/dart-sdk")))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
