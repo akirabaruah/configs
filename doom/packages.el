@@ -1,6 +1,11 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
+(package! centered-cursor-mode
+  :recipe (:host github
+           :repo "emacsmirror/centered-cursor-mode")
+  :pin "f376bdb882047347345d5f0e3ec3fcef63ee93ba")
+
 (package! protobuf-mode
   :recipe (:host github
            :repo "emacsmirror/protobuf-mode"

@@ -38,6 +38,9 @@
 
 (setq github-directory "~/projects/github.com/")
 
+(use-package! centered-cursor-mode
+  :hook (after-init . global-centered-cursor-mode))
+
 ;; Dart lang config.
 (use-package! dart-mode
   :mode ("\\.dart\\'" . dart-mode))
