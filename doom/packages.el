@@ -17,11 +17,6 @@
            :repo "bazelbuild/emacs-bazel-mode")
   :pin "668a44907f")
 
-(package! fish-mode
-  :recipe (:host github
-           :repo "emacsmirror/fish-mode")
-  :pin "db257db810")
-
 ;; To install a package with Doom you must declare them here, run 'doom sync' on
 ;; the command line, then restart Emacs for the changes to take effect.
 ;; Alternatively, use M-x doom/reload.
