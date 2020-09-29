@@ -41,14 +41,6 @@
 (use-package! centered-cursor-mode
   :hook (after-init . global-centered-cursor-mode))
 
-;; Dart lang config.
-(use-package! dart-mode
-  :mode ("\\.dart\\'" . dart-mode))
-(use-package! lsp-dart
-  :init
-  (setq lsp-dart-flutter-sdk-dir (concat github-directory "flutter/flutter"))
-  (setq lsp-dart-sdk-dir (concat lsp-dart-flutter-sdk-dir "/bin/cache/dart-sdk")))
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
