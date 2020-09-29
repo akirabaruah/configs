@@ -36,8 +36,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(setq github-directory "~/projects/github.com/")
-
 (use-package! centered-cursor-mode
   :hook (after-init . global-centered-cursor-mode))
 
