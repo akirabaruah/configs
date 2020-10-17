@@ -2,15 +2,10 @@
 ;;; $DOOMDIR/packages.el
 
 (package! centered-cursor-mode
-  :recipe (:host github
-           :repo "emacsmirror/centered-cursor-mode")
   :pin "f376bdb882047347345d5f0e3ec3fcef63ee93ba")
 
 (package! protobuf-mode
-  :recipe (:host github
-           :repo "emacsmirror/protobuf-mode"
-           :files ("protobuf-mode.el"))
-  :pin "94b7bd7e8b")
+  :pin "34d2bec69ddec511ec2dd4a8108fb920c27efe11")
 
 (package! bazel-mode
   :recipe (:host github
