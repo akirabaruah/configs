@@ -1,0 +1,15 @@
+---
+- name: Installing Packages
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - emacs
+    - ncurses # for tic
+  become: true
+
+- name: Compiling terminfo
+  vars:
+    terminfo_dir: "{{ ansible_env.HOME }}/.terminfo"
+  command:
+    cmd: "tic -x -o {{ terminfo_dir }} {{ role_path }}/files/terminfo-24bit.src"
