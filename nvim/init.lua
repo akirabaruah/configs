@@ -1,4 +1,5 @@
 -- Initialize Lazy package manager.
+-- https://github.com/folke/lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -29,29 +30,6 @@ vim.opt.shiftwidth = 0
 -- round indentation to multiples of 'shiftwidth' when shifting text
 vim.opt.shiftround = true
 
-require("lazy").setup({
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function () 
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "c",
-          "cpp",
-          "go",
-          "html",
-          "javascript",
-          "lua",
-          "python",
-          "typescript",
-          "vim",
-          "vimdoc",
-        },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },  
-      })
-    end,
-  },
-})
+-- https://github.com/folke/lazy.nvim#-structuring-your-plugins
+require("lazy").setup("plugins")
 
