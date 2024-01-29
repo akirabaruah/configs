@@ -1,13 +1,9 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "projekt0n/github-nvim-theme",
+  name = "github-theme",
   priority = 1000,
-  opts = {
-    flavour = "macchiato",
-  },
   config = function(plugin)
-    -- Default 
     require(plugin.name).setup(plugin.opts)
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("github_dark")
   end
 }
