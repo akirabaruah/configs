@@ -16,6 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Set `mapleader` before lazy so mappings are correct.
 vim.g.mapleader = " "
 
+-- Turn on line numbers.
+vim.opt.number = true
+
 require("local.indentation")
 
 -- https://github.com/folke/lazy.nvim#-structuring-your-plugins
