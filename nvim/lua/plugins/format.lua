@@ -33,4 +33,19 @@ return { -- Autoformat
       -- javascript = { { "prettierd", "prettier" } },
     },
   },
+  config = function()
+    local format_group = vim.api.nvim_create_augroup('Format', { clear = false })
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      desc = 'Remove trailing whitespace',
+      group = format_group,
+      pattern = '*',
+      command = [[%s/\s\+$//e]],
+    })
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      desc = 'Remove blank lines at end of file',
+      group = format_group,
+      pattern = '*',
+      command = [[%s/\%(\s*\n\)*\%$//e]],
+    })
+  end,
 }
