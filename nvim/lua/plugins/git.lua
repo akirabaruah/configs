@@ -4,6 +4,8 @@ return {
     keys = {
       { '<leader>gg', vim.cmd.Git, desc = 'Git (Fugitive)' },
       { '<leader>gb', '<cmd>Git blame<cr>', desc = 'Git blame' },
+      { '<leader>gp', '<cmd>Git pull<cr>', desc = 'Git pull' },
+      { '<leader>gP', '<cmd>Git push<cr>', desc = 'Git push' },
 
       -- Custom keymaps for the Fugitive buffer.
       { '<Tab>', '=', ft = 'fugitive', remap = true, desc = 'Toggle inline diff at cursor' },
