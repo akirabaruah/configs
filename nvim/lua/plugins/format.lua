@@ -35,17 +35,27 @@ return { -- Autoformat
   },
   config = function()
     local format_group = vim.api.nvim_create_augroup('Format', { clear = false })
+
+    local function preserve_cursor(cmd)
+      return function()
+        local pos = vim.fn.getpos('.')
+        vim.cmd(cmd)
+        vim.fn.setpos('.', pos)
+      end
+    end
+
     vim.api.nvim_create_autocmd('BufWritePre', {
       desc = 'Remove trailing whitespace',
       group = format_group,
       pattern = '*',
-      command = [[%s/\s\+$//e]],
+      callback = preserve_cursor([[%s/\s\+$//e]]),
     })
+
     vim.api.nvim_create_autocmd('BufWritePre', {
       desc = 'Remove blank lines at end of file',
       group = format_group,
       pattern = '*',
-      command = [[%s/\%(\s*\n\)*\%$//e]],
+      callback = preserve_cursor([[%s/\%(\s*\n\)*\%$//e]]),
     })
   end,
 }
