@@ -1,5 +1,6 @@
 return { -- Autoformat
   'stevearc/conform.nvim',
+  main = 'conform',
   lazy = false,
   keys = {
     {
@@ -33,12 +34,14 @@ return { -- Autoformat
       -- javascript = { { "prettierd", "prettier" } },
     },
   },
-  config = function()
+  config = function(plugin)
+    require(plugin.main).setup(plugin.opts)
+
     local format_group = vim.api.nvim_create_augroup('Format', { clear = false })
 
     local function preserve_cursor(cmd)
       return function()
-        local pos = vim.fn.getpos('.')
+        local pos = vim.fn.getpos '.'
         vim.cmd(cmd)
         vim.fn.setpos('.', pos)
       end
@@ -48,14 +51,14 @@ return { -- Autoformat
       desc = 'Remove trailing whitespace',
       group = format_group,
       pattern = '*',
-      callback = preserve_cursor([[%s/\s\+$//e]]),
+      callback = preserve_cursor [[%s/\s\+$//e]],
     })
 
     vim.api.nvim_create_autocmd('BufWritePre', {
       desc = 'Remove blank lines at end of file',
       group = format_group,
       pattern = '*',
-      callback = preserve_cursor([[%s/\%(\s*\n\)*\%$//e]]),
+      callback = preserve_cursor [[%s/\%(\s*\n\)*\%$//e]],
     })
   end,
 }
