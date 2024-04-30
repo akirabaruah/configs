@@ -66,7 +66,7 @@ return { -- Autoformat
       desc = 'Remove blank lines at end of file',
       group = format_group,
       pattern = '*',
-      command = [[%s/\%(\s*\n\)*\%$//e]],
+      callback = preserve_cursor [[%s/\%(\s*\n\)*\%$//e]],
     })
   end,
 }
