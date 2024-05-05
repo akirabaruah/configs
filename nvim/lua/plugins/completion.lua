@@ -29,12 +29,22 @@ return { -- Autocompletion
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    {
+      'windwp/nvim-autopairs',
+      event = 'InsertEnter',
+      config = true,
+    },
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
+
+    -- From the nvim-cmp wiki and nvim-autopairs README:
+    -- If you want insert `(` after select function or method item
+    local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
     cmp.setup {
       snippet = {
