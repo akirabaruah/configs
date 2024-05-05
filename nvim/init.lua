@@ -117,6 +117,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- I don't record q macros in read-only buffers, so remap q to quit instead.
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  desc = 'Set keymap for q to quit any read-only buffer',
+  group = vim.api.nvim_create_augroup('GlobalRemap', { clear = true }),
+  callback = function(args)
+    if vim.bo[args.buf].readonly then
+      vim.keymap.set('n', 'q', vim.cmd.quit, {
+        buffer = true, -- Only set this keymap for the current buffer.
+        desc = 'Quit current read-only buffer',
+      })
+    end
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
