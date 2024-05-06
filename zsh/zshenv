@@ -7,3 +7,11 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # Editor
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# Zsh's builtin path array variable to set up PATH.
+path=( \
+	"$HOME/.local/bin" \
+	"$HOME/homebrew/bin" \
+	$path \
+)
+export PATH
