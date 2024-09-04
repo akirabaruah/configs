@@ -23,3 +23,8 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=white,bold
 
 # Fish-like autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
 source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# History
+export HISTSIZE=1000
+export HISTFILE="$HOME/.zsh_history"
+export SAVEHIST=$HISTSIZE

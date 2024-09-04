@@ -11,7 +11,12 @@ export VISUAL="nvim"
 # Zsh's builtin path array variable to set up PATH.
 path=( \
 	"$HOME/.local/bin" \
+	"$HOME/depot_tools" \
 	"$HOME/homebrew/bin" \
+	"$HOME/fuchsia/.jiri_root/bin" \
 	$path \
 )
 export PATH
+
+source "$HOME/fuchsia/scripts/fx-env.sh"
+source "$HOME/.cargo/env"
