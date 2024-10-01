@@ -16,6 +16,13 @@ return {
       { '<leader>ff', builtin.find_files, desc = 'Find files' },
       { '<leader>f/', live_grep_args, desc = 'Search file content' },
       { '<leader>fo', builtin.oldfiles, desc = 'Recent (old) files' },
+      {
+        '<leader>fe',
+        function()
+          builtin.find_files { cwd = vim.fn.stdpath 'config' }
+        end,
+        desc = 'Editor config files',
+      },
       -- TODO: New file
       -- TODO: Delete file (maybe using list)
 
@@ -23,6 +30,9 @@ return {
       { '<leader>gb', builtin.git_branches, desc = 'Git branches' },
       { '<leader>gl', builtin.git_bcommits, desc = 'Git log for current buffer' },
       { '<leader>gL', builtin.git_commits, desc = 'Git log for repo' },
+
+      -- Jumplist
+      { '<leader>j', builtin.jumplist, desc = 'Jumplist' },
     }
   end,
   opts = function()
