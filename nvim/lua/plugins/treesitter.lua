@@ -1,7 +1,12 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
+  dependencies = {
+    -- https://github.com/nushell/tree-sitter-nu/blob/main/installation/neovim.md
+    { 'nushell/tree-sitter-nu', build = ':TSUpdate nu' },
+  },
   build = ':TSUpdate',
   opts = {
+    auto_install = true,
     ensure_installed = {
       'bash',
       'c',
@@ -13,8 +18,6 @@ return { -- Highlight, edit, and navigate code
       'vim',
       'vimdoc',
     },
-    -- Autoinstall languages that are not installed
-    auto_install = true,
     highlight = {
       enable = true,
       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.

@@ -192,6 +192,7 @@ return { -- LSP Configuration & Plugins
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+    local lspconfig = require 'lspconfig'
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
@@ -200,9 +201,11 @@ return { -- LSP Configuration & Plugins
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
+          lspconfig[server_name].setup(server)
         end,
       },
     }
+
+    lspconfig.nushell.setup {}
   end,
 }
