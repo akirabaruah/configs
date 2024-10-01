@@ -10,6 +10,7 @@ return {
     end,
   },
 
+  -- TODO: Doesn't seem to work for Lua files. Fix this.
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', lazy = false },
 

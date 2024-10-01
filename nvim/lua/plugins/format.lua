@@ -1,4 +1,6 @@
-return { -- Autoformat
+return {
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically.
+
   {
     'mfussenegger/nvim-lint',
     main = 'lint',
@@ -13,6 +15,7 @@ return { -- Autoformat
       lint.linters_by_ft = plugin.opts.linters_by_ft
     end,
   },
+
   {
     'stevearc/conform.nvim',
     main = 'conform',
@@ -23,7 +26,6 @@ return { -- Autoformat
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
-        mode = '',
         desc = '[F]ormat buffer',
       },
     },
@@ -41,6 +43,10 @@ return { -- Autoformat
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        ['_'] = { -- Represents filetypes that don't have other formatters configured.
+          'trim_newlines', -- Trim empty lines at the end of the file.
+          'trim_whitespace', -- Trim trailing whitespace.
+        },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -63,13 +69,6 @@ return { -- Autoformat
       end
 
       vim.api.nvim_create_autocmd('BufWritePre', {
-        desc = 'Remove trailing whitespace',
-        group = format_group,
-        pattern = '*',
-        callback = preserve_cursor [[%s/\s\+$//e]],
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
         desc = 'Remove consecutive blank lines',
         group = format_group,
         pattern = '*',
@@ -82,13 +81,6 @@ return { -- Autoformat
           local f = preserve_cursor [[%s/\%(\s*\n\)\{3,}/\r\r/e]]
           f()
         end,
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        desc = 'Remove blank lines at end of file',
-        group = format_group,
-        pattern = '*',
-        callback = preserve_cursor [[%s/\%(\s*\n\)*\%$//e]],
       })
     end,
   },
