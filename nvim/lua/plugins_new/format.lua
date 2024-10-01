@@ -1,4 +1,6 @@
-return { -- Autoformat
+return {
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically.
+
   {
     'mfussenegger/nvim-lint',
     main = 'lint',
@@ -13,6 +15,7 @@ return { -- Autoformat
       lint.linters_by_ft = plugin.opts.linters_by_ft
     end,
   },
+
   {
     'stevearc/conform.nvim',
     main = 'conform',
@@ -23,7 +26,6 @@ return { -- Autoformat
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
-        mode = '',
         desc = '[F]ormat buffer',
       },
     },

@@ -1,5 +1,15 @@
 return {
   'neovim/nvim-lspconfig',
+  name = 'lspconfig',
+  config = function(plugin)
+    local lspconfig = require(plugin.name)
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local default_config = { capabilities = capabilities }
+
+    -- TODO: Iterate over a list of language servers.
+    lspconfig.lua_ls.setup(default_config)
+    lspconfig.nushell.setup(default_config)
+  end,
   dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
@@ -12,10 +22,5 @@ return {
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     { 'folke/neodev.nvim', opts = {} },
-
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
   },
-  keys = function()
-  end,
 }
