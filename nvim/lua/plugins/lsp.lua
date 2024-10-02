@@ -10,6 +10,7 @@ return {
     -- TODO: Iterate over a list of language servers.
     -- TODO: Add fidl LSP server.
     lspconfig.lua_ls.setup(default_config)
+    lspconfig.rust_analyzer.setup(default_config)
     lspconfig.nushell.setup(default_config)
   end,
   dependencies = {
