@@ -6,6 +6,11 @@ return {
     local builtin = require 'telescope.builtin'
     local live_grep_args = require('telescope').extensions.live_grep_args.live_grep_args
     return {
+      -- Navigation
+      { 'gd', builtin.lsp_definitions, desc = 'Go to definition' },
+      { 'gr', builtin.lsp_references, desc = 'Go to references' },
+      { 'gI', builtin.lsp_implementations, desc = 'Go to implementation' },
+
       -- Buffers
       { '<leader><leader>', builtin.buffers, desc = 'List buffers' },
       -- TODO: Search content of open buffers
