@@ -6,7 +6,9 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     local default_config = { capabilities = capabilities }
 
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
     -- TODO: Iterate over a list of language servers.
+    -- TODO: Add fidl LSP server.
     lspconfig.lua_ls.setup(default_config)
     lspconfig.nushell.setup(default_config)
   end,
