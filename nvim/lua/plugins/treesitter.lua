@@ -2,6 +2,7 @@ return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
+      -- TODO: This plugin's build step seems broken on initial load.
       -- https://github.com/nushell/tree-sitter-nu/blob/main/installation/neovim.md
       { 'nushell/tree-sitter-nu', build = ':TSUpdate nu' },
     },

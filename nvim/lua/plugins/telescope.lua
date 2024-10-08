@@ -42,6 +42,9 @@ return {
 
       -- Jumplist
       { '<leader>j', builtin.jumplist, desc = 'Jumplist' },
+
+      -- Containers
+      -- TODO: Find a way to manage Docker containers for development.
     }
   end,
   opts = function()
@@ -58,6 +61,7 @@ return {
           sort_mru = true, -- Sort buffers in most recently used order.
           mappings = {
             i = {
+              -- TODO: Find a different binding. Ctrl-k is too easy to call accidentally.
               ['<C-k>'] = require('telescope.actions').delete_buffer,
             },
           },
