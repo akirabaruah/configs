@@ -8,6 +8,7 @@ return {
       local luasnip = require 'luasnip'
       return {
         mapping = {
+          ['<CR>'] = cmp.mapping.confirm { select = true },
           ['<Tab>'] = cmp.mapping.confirm { select = true },
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-p>'] = cmp.mapping.select_prev_item(),
