@@ -1,6 +1,12 @@
 return {
   'neovim/nvim-lspconfig',
   name = 'lspconfig',
+  lazy = false, -- TODO: Remove this and load on buffer entry.
+  keys = {
+    { 'K', vim.lsp.buf.hover, desc = 'Hover documentation' },
+    { '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action' },
+    -- TODO: Add function to list methods and their documentation (in Telescope?).
+  },
   config = function(plugin)
     local lspconfig = require(plugin.name)
     local capabilities = require('cmp_nvim_lsp').default_capabilities()

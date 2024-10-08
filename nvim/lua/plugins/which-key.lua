@@ -4,6 +4,7 @@ return {
   config = function() -- Runs after loading this plugin.
     require('which-key').setup()
     require('which-key').register {
+      ['<leader>c'] = { name = '[C]ontent', _ = 'which_key_ignore' },
       ['<leader>f'] = { name = '[F]ile', _ = 'which_key_ignore' },
       ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
     }

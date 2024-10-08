@@ -31,6 +31,10 @@ return {
       -- TODO: New file
       -- TODO: Delete file (maybe using list)
 
+      -- Content / Code
+      { '<leader>cs', builtin.treesitter, desc = 'List treesitter symbols' },
+      { '<leader>cS', builtin.lsp_document_symbols, desc = 'List LSP symbols' },
+
       -- Git
       { '<leader>gb', builtin.git_branches, desc = 'Git branches' },
       { '<leader>gl', builtin.git_bcommits, desc = 'Git log for current buffer' },
