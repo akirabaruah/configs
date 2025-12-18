@@ -18,6 +18,7 @@ return {
         'c',
         'diff',
         'fidl', -- TODO: Only install when entering buffer with filetype fidl.
+        'gitcommit',
         'html',
         'lua',
         'luadoc',
